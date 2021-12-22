@@ -1,0 +1,32 @@
+<div class="contenedor">
+    <app-header-landing></app-header-landing>
+    <div class="fondo"> 
+        <form class = "inicio-sesion" [formGroup]="formulario" (ngSubmit)="onSubmit()">
+            <div class="logo-login">
+                <img class="tam-logo-login" src="../../../assets/imagen/login.png">
+            </div> 
+            <h2>¡Hola! Inicia sesión para continuar</h2>
+            <div class="registrate">
+                <h3>¿Tu primera vez en Electronics?</h3>
+                <button class="boton-registrate" mat-button [routerLink]="['/register']" routerLinkActive="router-link-active" color='primary'> Registrate </button>
+            </div>
+    
+            <mat-form-field class="input-form"appearance="fill">
+                <mat-label>Enter your email</mat-label>
+                <input matInput placeholder="pat@example.com" formControlName="email" required>
+                <mat-error *ngIf="formulario.get('email')?.invalid"> Email invalido </mat-error>
+            </mat-form-field>
+        
+            <mat-form-field class="input-form" appearance="fill">
+                <mat-label>Ingrese su contraseña</mat-label>
+                <input matInput [type]="hide ? 'password' : 'text'" formControlName="contraseña" required>
+                <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </button>
+            </mat-form-field>
+        
+            <button mat-button color='primary' type="submit" [disabled]="!formulario.valid"  [routerLink]="['/home']" routerLinkActive="router-link-active"> Iniciar sesion </button>
+        </form>
+    </div>
+    <app-footer-landing></app-footer-landing>
+</div>
