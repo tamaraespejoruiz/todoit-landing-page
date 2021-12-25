@@ -27,7 +27,7 @@ export class SignUpComponent implements OnInit{
   })
 
   onSubmit() {
-    console.warn(this.formulario.value)
+    //console.warn(this.formulario.value)
     this.signUp();
   }
 
@@ -42,8 +42,6 @@ export class SignUpComponent implements OnInit{
 
   signUp() {
     const usuario = this.getUsuarioFromFormulario();
-    console.log(usuario);
-
     this.signUpService.save(usuario).subscribe((resp) => {
     });
   }
