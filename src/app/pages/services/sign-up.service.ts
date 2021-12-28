@@ -6,19 +6,16 @@ import { Usuario } from '../../models/usuario';
 @Injectable({
   providedIn: 'root'
 })
+
 export class SignUpService {
 
-  constructor(  private http: HttpClient) { 
-    
-  }
+  constructor( private http: HttpClient) {  }
 
-  save(usuario:Usuario):  Observable<Usuario>  {
-    console.log("Save");
-    
+  save(usuario:Usuario):  Observable<Usuario> {    
     return  this.http.post<Usuario>('http://localhost:3000/Users', usuario);
   }
 
-  getAll(){
+  getAll() {
     return  this.http.get<Usuario>('http://localhost:3000/Users');
   }
     
